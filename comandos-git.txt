@@ -1,0 +1,41 @@
+ATIVIDADE - MOBEAD / JENKINS CI/CD
+Comandos Git para registrar a atividade
+
+1. O clone inicial feito para preparar o projeto foi:
+   git clone https://github.com/osanam-giordane/MobEAD.git .
+
+2. Crie um fork de osanam-giordane/MobEAD para a conta marciobsb31
+   (pela página do GitHub ou com gh repo fork osanam-giordane/MobEAD).
+   Depois, dentro desta pasta, configure o fork como origin e o original
+   como upstream:
+
+   git remote rename origin upstream
+   git remote add origin https://github.com/marciobsb31/MobEAD.git
+   git remote -v
+   git fetch origin
+   git checkout -b feat/jenkins-cicd-marcio
+
+3. Execute os testes localmente e revise o que será enviado:
+
+   npm test
+   git status
+   git diff --check
+   git diff
+
+4. Registre e envie as alterações para o seu fork:
+
+   git add Jenkinsfile Dockerfile .dockerignore package.json tests/mobead.test.js sonar-project.properties comandos-git.txt PIPELINE.md
+   git commit -m "Add Jenkins CI/CD pipeline with SonarQube and gated production deploy"
+   git push -u origin feat/jenkins-cicd-marcio
+
+5. Comandos úteis para acompanhar o fork e atualizar a branch:
+
+   git status --short --branch
+   git log --oneline -5
+   git fetch upstream
+   git merge upstream/main
+   git push
+
+Observação: o fork, o push e a execução no Jenkins dependem da conta GitHub
+marciobsb31 e das credenciais/configurações da sua infraestrutura. O usuário
+do Docker Hub pode ser diferente do usuário do GitHub.

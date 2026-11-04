@@ -1,0 +1,13 @@
+.git
+.github
+.vscode
+node_modules
+tests
+package.json
+Jenkinsfile
+sonar-project.properties
+comandos-git.txt
+PIPELINE.md
+azure-pipelines*.yml
+*.sln
+teste.js

@@ -1,0 +1,9 @@
+{
+  "name": "mobead",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Testes automatizados da aplicação exemplo MobEAD",
+  "scripts": {
+    "test": "node --test"
+  }
+}
