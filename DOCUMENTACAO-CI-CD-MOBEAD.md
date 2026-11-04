@@ -18,9 +18,13 @@ O objetivo foi deixar a aplicação pronta para ser executada em um ambiente rea
 
 ### 1. Dockerfile
 O projeto agora contém um container baseado em `nginx:alpine`, com a pasta da aplicação publicada no diretório padrão do Nginx.
+O arquivo `nginx.conf` também mapeia o prefixo `/MobEAD/` usado pelas URLs
+absolutas das fontes Font Awesome legadas para os arquivos servidos na raiz do
+container.
 
 Arquivo:
 - `Dockerfile`
+- `nginx.conf`
 
 ### 2. Jenkinsfile
 Foi criado um pipeline Jenkins com as seguintes etapas:
@@ -261,6 +265,10 @@ A imagem publicada é do tipo Nginx, e o container expõe a porta 80.
 
 ### Sobre o deploy
 A estratégia adotada é substituir os contêineres `mobead-dev` e `mobead-prod` em cada ambiente remoto.
+Para demonstração sem hosts remotos, o parâmetro `LOCAL_LAB_MODE` executa
+deploys isolados em containers locais (`mobead-dev-local` e
+`mobead-prod-local`), nas portas 18081 e 18082. Esse modo não publica a imagem
+no Docker Hub nem substitui containers dos ambientes remotos.
 
 ### Sobre a aprovação
 A etapa de produção é protegida por uma entrada manual:
