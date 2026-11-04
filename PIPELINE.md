@@ -25,6 +25,21 @@ produção.
 - Os dois hosts precisam ter Docker instalado, porta 80 liberada e acesso ao
   Docker Hub. Os endereços em `DEV_URL` e `PROD_URL` devem chegar ao serviço.
 
+## Execução em laboratório local
+
+Para validar a pipeline sem hosts remotos, marque `LOCAL_LAB_MODE` como
+`true` em **Build with Parameters** e use:
+
+- `DEV_URL`: `http://host.docker.internal:18081/`
+- `PROD_URL`: `http://host.docker.internal:18082/`
+
+Esse modo seleciona o agente `built-in`, analisa com o SonarScanner disponível
+no Jenkins, constrói a imagem localmente e cria os containers
+`mobead-dev-local` e `mobead-prod-local`. Ele não publica no Docker Hub nem
+conecta a hosts SSH, e não substitui os containers remotos da configuração
+normal. A aprovação manual entre DEV e PROD permanece ativa. Não apresente o
+laboratório local como execução em servidores remotos.
+
 ## Criar o job
 
 1. Crie um job **Pipeline** com o nome `MobEAD-Márcio-CI-CD`.
